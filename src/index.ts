@@ -9,6 +9,7 @@
  */
 
 export interface Env {
+	API_KEY: string;
 	// Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
 	// MY_KV_NAMESPACE: KVNamespace;
 	//
@@ -27,6 +28,7 @@ export interface Env {
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+		console.log('hello world', env.API_KEY);
 		return new Response(JSON.stringify({ hello: 'world2' }), {
 			headers: {
 				'content-type': 'application/json;charset=UTF-8',
