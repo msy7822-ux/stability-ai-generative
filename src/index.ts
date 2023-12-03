@@ -26,7 +26,12 @@ export interface Env {
 }
 
 export default {
-	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		return new Response('Hello World!');
+	async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+		return new Response(JSON.stringify({ hello: 'world2' }), {
+			headers: {
+				'content-type': 'application/json;charset=UTF-8',
+				'Access-Control-Allow-Origin': 'https://busy-qbhouse.pages.dev',
+			},
+		});
 	},
 };
